@@ -1,3 +1,4 @@
+ @library('jenkins-shared-library') _
  pipeline {
     agent {
         label "ws"
@@ -5,6 +6,9 @@
     stages{
         stage('Lint Checks'){
           steps {
+            script {
+                sample.info()
+            }
             sh "whoami"
             sh "echo ***** Starting Style Checks *****"
             sh "ls -ltr server.js"
